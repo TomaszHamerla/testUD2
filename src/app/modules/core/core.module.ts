@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HeaderComponent} from './components/header/header.component';
 import {RouterLink} from "@angular/router";
+import {MaterialModule} from "../shared/material/material.module";
 
 @NgModule({
   declarations: [
@@ -14,9 +13,9 @@ import {RouterLink} from "@angular/router";
   ],
   imports: [
     CommonModule,
-    MatToolbarModule,
-    MatButtonModule,
-    RouterLink
+    RouterLink,
+    MaterialModule
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}
