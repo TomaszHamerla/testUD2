@@ -5,10 +5,6 @@ import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [],
-  imports: [
-    MatToolbarModule,
-    MatButtonModule,
-  ],
   exports: [
     MatToolbarModule,
     MatButtonModule
