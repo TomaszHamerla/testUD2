@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../../environments/environment.development";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, map, Observable, tap} from "rxjs";
-import {GetUserResponse, User, UserLoginDate} from "../models/UserLoginDate";
+import {GetUserResponse, PostUser, PostUserRespone, User, UserLoginDate} from "../models/UserLoginDate";
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -48,6 +48,10 @@ export class AuthService {
 
     const user = new User(userData.email, userData.username);
     this.user.next(user);
+  }
+
+  register(userData: PostUser):Observable<PostUserRespone> {
+    return this.http.post<PostUserRespone>(`${this.apiUrl}/users`, userData);
   }
 
   logout() {
