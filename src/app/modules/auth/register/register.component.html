@@ -5,6 +5,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Adres e-mail</mat-label>
         <input matInput placeholder="test@gmail.com" formControlName="email">
+        <mat-error *ngIf="controls.email.invalid">{{getErrorMessages(controls.email)}}</mat-error>
       </mat-form-field>
     </div>
 
@@ -12,12 +13,14 @@
       <mat-form-field appearance="fill">
         <mat-label>Nazwa użytkownika</mat-label>
         <input matInput formControlName="username">
+        <mat-error *ngIf="controls.username.invalid">{{getErrorMessages(controls.username)}}</mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Hasło</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+        <mat-error *ngIf="controls.password.invalid">{{getErrorMessages(controls.password)}}</mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -25,9 +28,10 @@
     </div>
 
     <div class="d-flex justify-content-end">
-      <button color="primary" mat-raised-button type="submit" >Zarejestruj się</button>
+      <button [disabled]="registerForm.invalid" color="primary" mat-raised-button type="submit" >Zarejestruj się</button>
     </div>
 
 <!--    <app-alert *ngIf="errorMsg" [text]="errorMsg"></app-alert>-->
   </form>
+  <app-alert *ngIf="errorMsg" [text]="errorMsg"></app-alert>
 </div>
