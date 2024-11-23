@@ -54,7 +54,7 @@ export class AuthService {
     this.user.next(null);
     this.router.navigate(['/logowanie']);
 
-    localStorage.removeItem('key');
+    localStorage.removeItem('user');
   }
 
   private handleAuthentication(userArr: User[]) {
