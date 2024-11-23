@@ -29,5 +29,9 @@
     <div class="d-flex justify-content-end">
       <button color="primary" mat-raised-button type="submit" [disabled]="!f.valid">Zaloguj się</button>
     </div>
+    <div>
+      <p class="text-center">Nie masz konta?<a routerLink="/rejestracja"></a></p>
+    </div>
+    <app-alert *ngIf="errorMsg" [text]="errorMsg"></app-alert>
   </form>
 </div>
