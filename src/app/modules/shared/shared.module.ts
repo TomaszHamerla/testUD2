@@ -4,6 +4,7 @@ import {MaterialModule} from "./material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AlertComponent } from './components/alert/alert.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule, provideHttpClient} from "@angular/common/http";
 
 
 
@@ -19,6 +20,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FormsModule,
     ReactiveFormsModule, AlertComponent,
     BrowserAnimationsModule
-  ]
+  ],
+  providers: [provideHttpClient()]
 })
 export class SharedModule { }
