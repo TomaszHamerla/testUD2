@@ -23,3 +23,8 @@ export class Client implements ClientResponse {
   ) {
   }
 }
+
+export interface GetClientResponse {
+  clients: Client[];
+  totalCount: number;
+}

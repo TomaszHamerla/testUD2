@@ -4,6 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Client} from "../../core/models/client.model";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {map, merge, startWith, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-clients-table',
@@ -13,6 +14,7 @@ import {MatSort} from "@angular/material/sort";
 export class ClientsTableComponent implements AfterViewInit {
   displayedColumns: string[] = ['lp', 'firstname', 'surname', 'email', 'buttons'];
   dataSource!: MatTableDataSource<Client>;
+  totalCount = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -24,16 +26,27 @@ export class ClientsTableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.clientService.getClients().subscribe({
-      next: clients => {
-        this.dataSource = new MatTableDataSource<Client>(clients);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-      error: (err) => {
+    this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
-      }
-    })
+    merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        startWith({}),
+        switchMap(() => {
+          const pageIndex = this.paginator.pageIndex + 1;
+          const itemsPerPage = this.paginator.pageSize;
+          const sortDirection = this.sort.direction;
+          const sortColumnname = this.sort.active;
+
+          return this.clientService.getClients(pageIndex, itemsPerPage, sortDirection, sortColumnname);
+        }),
+        map(data => {
+          this.totalCount = data.totalCount
+          return data.clients;
+        }),
+      )
+      .subscribe((clients) => {
+        this.dataSource = new MatTableDataSource<Client>(clients);
+      });
   }
 
   applyFilter(event: Event) {
