@@ -16,18 +16,18 @@ export class ClientsService {
   ) {
   }
 
-  getClients(pageIndesx: number, itemsPerPage: number, sortDirection: string, sortColumnName: string): Observable<GetClientResponse> {
-    let params;
+  getClients(pageIndesx: number, itemsPerPage: number, sortDirection: string, sortColumnName: string, value =''): Observable<GetClientResponse> {
+    let params = new HttpParams()
+      .append('_page', pageIndesx)
+      .append('_limit', itemsPerPage);
     if (sortColumnName) {
-      params = new HttpParams()
-        .append('_page', pageIndesx)
-        .append('_limit', itemsPerPage)
+      params = params
         .append('_sort', sortColumnName)
         .append('_order', sortDirection);
-    } else {
-      params = new HttpParams()
-        .append('_page', pageIndesx)
-        .append('_limit', itemsPerPage);
+    }
+
+    if (value) {
+      params = params.append('firstname_like', value);
     }
 
     return this.http.get<ClientResponse[]>(`${this.apiUrl}/clients`, {observe: 'response', params}).pipe(
