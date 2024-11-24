@@ -13,13 +13,13 @@ export type PostClient = Omit<ClientResponse, 'id'>;
 export class Client implements ClientResponse {
 
   constructor(
-    public address: string,
-    public email: string,
-    public firstname: string,
     public id: number,
+    public firstname: string,
+    public surname: string,
+    public email: string,
     public phone: string,
-    public postcode: string,
-    public surname: string
+    public address: string,
+    public postcode: string
   ) {
   }
 }
