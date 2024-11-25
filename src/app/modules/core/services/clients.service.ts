@@ -47,6 +47,14 @@ export class ClientsService {
     );
   }
 
+  getClient(id: number): Observable<Client> {
+    return this.http.get<ClientResponse>(`${this.apiUrl}/clients/${id}`)
+      .pipe(
+        map(({id, firstname, surname, email, phone, address, postcode}) =>
+          new Client(id, firstname, surname, email, phone, address, postcode))
+      );
+  }
+
   postClient(clientData: PostClient): Observable<Client> {
     return this.http.post<ClientResponse>(`${this.apiUrl}/clients`, clientData).pipe(
       map(({id, firstname, surname, email, phone, address, postcode}) =>
