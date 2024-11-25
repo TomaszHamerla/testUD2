@@ -5,6 +5,9 @@ import {ClientsComponent} from "./clients.component";
 const routes: Routes = [
   {
     path: 'klienci', component: ClientsComponent
+  },
+  {
+    path: 'klienci/:id', component: ClientsComponent
   }
 ];
 
