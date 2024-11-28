@@ -1,1 +1,60 @@
-<p>client-form works!</p>
+<div class="client-form-wrapper mt-3">
+  <h2>Dodaj nowego klienta:</h2>
+  <form [formGroup]="clientForm" (ngSubmit)="onAddCliennnt()">
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Imie</mat-label>
+        <input matInput formControlName="firstname">
+        <mat-error *ngIf="controls.firstname.invalid">{{getErrorMessages(controls.firstname)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwikso</mat-label>
+        <input matInput formControlName="surname">
+        <mat-error *ngIf="controls.surname.invalid">{{getErrorMessages(controls.surname)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Adres e-mail</mat-label>
+        <input matInput placeholder="test@gmail.com" formControlName="email">
+        <mat-error *ngIf="controls.email.invalid">{{getErrorMessages(controls.email)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nr telefonu</mat-label>
+        <input matInput formControlName="phone">
+        <mat-error *ngIf="controls.phone.invalid">{{getErrorMessages(controls.phone)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Adres zamieszkania</mat-label>
+        <input matInput formControlName="address">
+        <mat-error *ngIf="controls.address.invalid">{{getErrorMessages(controls.address)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Kod pcoztowy</mat-label>
+        <input matInput formControlName="postcode">
+        <mat-error *ngIf="controls.postcode.invalid">{{getErrorMessages(controls.postcode)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button [disabled]="clientForm.invalid" color="primary" mat-raised-button type="submit" >Dodaj nowego klienta</button>
+    </div>
+
+    <!--    <app-alert *ngIf="errorMsg" [text]="errorMsg"></app-alert>-->
+  </form>
+<!--  <app-alert *ngIf="errorMsg" [text]="errorMsg"></app-alert>-->
+</div>
