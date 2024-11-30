@@ -5,6 +5,7 @@ import {Client} from "../../../core/models/client.model";
 import {switchMap} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteClientDialogComponent} from "./delete-client-dialog/delete-client-dialog.component";
+import {EditClientDialogComponent} from "./edit-client-dialog/edit-client-dialog.component";
 
 @Component({
   selector: 'app-client',
@@ -37,6 +38,15 @@ export class ClientComponent implements OnInit{
       data: {
         client: this.client
       }
+    })
+  }
+
+  openEditDialog() {
+    const dialogRef = this.dialog.open(EditClientDialogComponent, {
+      data: {
+        client: this.client
+      },
+      width: '600px'
     })
   }
 }
