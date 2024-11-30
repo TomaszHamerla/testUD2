@@ -27,11 +27,12 @@
     </div>
 
     <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Nr telefonu</mat-label>
-        <input matInput formControlName="phone">
-        <mat-error *ngIf="controls.phone.invalid">{{getErrorMessages(controls.phone)}}</mat-error>
-      </mat-form-field>
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>Nr telefonu</mat-label>-->
+<!--        <input matInput formControlName="phone">-->
+<!--        <mat-error *ngIf="controls.phone.invalid">{{getErrorMessages(controls.phone)}}</mat-error>-->
+<!--      </mat-form-field>-->
+      <app-phone-control formControlName="phone"></app-phone-control>
     </div>
 
     <div>
