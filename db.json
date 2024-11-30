@@ -15,13 +15,13 @@
   ],
   "clients": [
     {
-      "id": 2,
-      "firstname": "Test2",
+      "firstname": "Test123123213",
       "surname": "Testowy",
       "email": "test@gmail.com",
       "phone": "123123123",
       "address": "Miasto ul. Testowa 12",
-      "postcode": "111-11"
+      "postcode": "111-11",
+      "id": 2
     },
     {
       "id": 3,
