@@ -15,15 +15,6 @@
   ],
   "clients": [
     {
-      "id": 1,
-      "firstname": "Test",
-      "surname": "Testowy",
-      "email": "test@gmail.com",
-      "phone": "123123123",
-      "address": "Miasto ul. Testowa 12",
-      "postcode": "111-11"
-    },
-    {
       "id": 2,
       "firstname": "Test2",
       "surname": "Testowy",
@@ -40,15 +31,6 @@
       "phone": "123123123",
       "address": "Miasto ul. Testowa 12",
       "postcode": "111-11"
-    },
-    {
-      "firstname": "test23",
-      "surname": "testowy23",
-      "email": "testowy23@gmail.com",
-      "phone": "123123123",
-      "address": "testowy23",
-      "postcode": "testowy23",
-      "id": 4
     }
   ]
 }
