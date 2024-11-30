@@ -21,6 +21,10 @@ export class FormsService {
       return 'Przekazales za duzo znakow'
     }
 
+    if ((control.hasError('invalidPostcode'))) {
+      return 'Kod pocztowy powinien byc w formacie xx-xxx';
+    }
+
     return control.hasError('email') ? 'Nieprawidlowy adres email' : '';
   }
 }
