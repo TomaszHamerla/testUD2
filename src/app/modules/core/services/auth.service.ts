@@ -72,4 +72,8 @@ export class AuthService {
 
     this.router.navigate(['/klienci']);
   }
+
+  isLoggedId(): boolean {
+    return !!this.user.getValue();
+  }
 }
