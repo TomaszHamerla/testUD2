@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PostClientForm} from "../../../core/models/client.model";
 import {FormsService} from "../../../core/services/forms.service";
+import {ClientsService} from "../../../core/services/clients.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-client-form',
@@ -11,9 +13,12 @@ import {FormsService} from "../../../core/services/forms.service";
 export class ClientFormComponent implements OnInit {
 
   clientForm!: FormGroup<PostClientForm>;
+   errorMsg = '';
 
   constructor(
-    private formsService: FormsService
+    private formsService: FormsService,
+    private clientService: ClientsService,
+    private router: Router
   ) {
   }
 
@@ -41,6 +46,14 @@ export class ClientFormComponent implements OnInit {
   }
 
   onAddCliennnt() {
-
+    this.clientService.postClient(this.clientForm.getRawValue()).subscribe({
+      next: () => {
+        this.errorMsg = '';
+        this.router.navigate(['/klienci'])
+      },
+      error: err => {
+        this.errorMsg = 'Wystapil blad';
+      }
+    })
   }
 }
