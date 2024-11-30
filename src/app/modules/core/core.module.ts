@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {HeaderComponent} from './components/header/header.component';
 import {RouterLink} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {provideHttpClient} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -12,8 +14,10 @@ import {SharedModule} from "../shared/shared.module";
   ],
   imports: [
     RouterLink,
-    SharedModule
-  ]
+    SharedModule,
+    BrowserAnimationsModule
+  ],
+  providers: [provideHttpClient()]
 })
 export class CoreModule {
 }

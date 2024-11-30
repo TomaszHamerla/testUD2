@@ -24,7 +24,6 @@ import { EditClientDialogComponent } from './components/client/edit-client-dialo
     ClientsRoutingModule
   ],
   exports: [
-    ClientsComponent
   ]
 })
 export class ClientsModule {
