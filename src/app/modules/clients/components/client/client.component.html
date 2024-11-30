@@ -1,4 +1,8 @@
 <div *ngIf="client">
+  <div>
+    <p>Usuń klienta:</p>
+    <button mat-raised-button color="warn" (click)="openDialog()">Usuń</button>
+  </div>
   <p>Dane klienta:</p>
   <p>{{client.firstname}} {{client.surname}}</p>
   <p>Adres e-mail: {{client.email}}</p>

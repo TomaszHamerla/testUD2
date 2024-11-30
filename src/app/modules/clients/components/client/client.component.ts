@@ -3,6 +3,8 @@ import {ClientsService} from "../../../core/services/clients.service";
 import {ActivatedRoute} from "@angular/router";
 import {Client} from "../../../core/models/client.model";
 import {switchMap} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {DeleteClientDialogComponent} from "./delete-client-dialog/delete-client-dialog.component";
 
 @Component({
   selector: 'app-client',
@@ -14,7 +16,8 @@ export class ClientComponent implements OnInit{
   client!: Client;
   constructor(
     private clientService: ClientsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) {
   }
 
@@ -29,4 +32,11 @@ export class ClientComponent implements OnInit{
       })
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(DeleteClientDialogComponent, {
+      data: {
+        client: this.client
+      }
+    })
+  }
 }
