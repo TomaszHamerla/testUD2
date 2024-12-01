@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {SpinnerComponent} from './components/spinner/spinner.component';
 import {spinnerInterceptor} from "./interceptors/spinner.interceptor";
+import {headerInterceptor} from "./interceptors/header.interceptor";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {spinnerInterceptor} from "./interceptors/spinner.interceptor";
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [provideHttpClient(withInterceptors([spinnerInterceptor]))]
+  providers: [provideHttpClient(withInterceptors([spinnerInterceptor, headerInterceptor]))]
 })
 export class CoreModule {
 }
