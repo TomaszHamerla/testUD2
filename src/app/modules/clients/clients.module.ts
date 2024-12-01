@@ -8,6 +8,7 @@ import { ClientComponent } from './components/client/client.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { DeleteClientDialogComponent } from './components/client/delete-client-dialog/delete-client-dialog.component';
 import { EditClientDialogComponent } from './components/client/edit-client-dialog/edit-client-dialog.component';
+import {HighlightDirective} from "../shared/directives/highlight.directive";
 
 
 @NgModule({
@@ -19,10 +20,11 @@ import { EditClientDialogComponent } from './components/client/edit-client-dialo
     DeleteClientDialogComponent,
     EditClientDialogComponent
   ],
-  imports: [
-    SharedModule,
-    ClientsRoutingModule
-  ],
+    imports: [
+        SharedModule,
+        ClientsRoutingModule,
+        HighlightDirective
+    ],
   exports: [
   ]
 })
