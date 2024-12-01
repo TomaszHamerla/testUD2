@@ -3,21 +3,25 @@ import {HeaderComponent} from './components/header/header.component';
 import {RouterLink} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {provideHttpClient} from "@angular/common/http";
+import {provideHttpClient, withInterceptors} from "@angular/common/http";
+import {SpinnerComponent} from './components/spinner/spinner.component';
+import {spinnerInterceptor} from "./interceptors/spinner.interceptor";
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     RouterLink,
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [provideHttpClient()]
+  providers: [provideHttpClient(withInterceptors([spinnerInterceptor]))]
 })
 export class CoreModule {
 }
