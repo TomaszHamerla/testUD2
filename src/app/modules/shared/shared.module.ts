@@ -5,13 +5,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AlertComponent} from './components/alert/alert.component';
 import {PhoneControlComponent} from './controls/phone-control/phone-control.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 
 @NgModule({
   declarations: [
     AlertComponent,
     PhoneControlComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     CommonModule, ReactiveFormsModule, MaterialModule
@@ -20,7 +22,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule, AlertComponent,
-    PhoneControlComponent, HighlightDirective
+    PhoneControlComponent, HighlightDirective, UnlessDirective
   ]
 })
 export class SharedModule {
