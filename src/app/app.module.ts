@@ -5,17 +5,19 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from "./modules/core/core.module";
 import {AuthModule} from "./modules/auth/auth.module";
+import {FooterComponent} from "./modules/core/components/footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
-    AuthModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CoreModule,
+        AuthModule,
+        FooterComponent
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
