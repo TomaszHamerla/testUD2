@@ -1,16 +1,23 @@
 import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
 import {ClientsService} from "../../../core/services/clients.service";
-import {MatTableDataSource} from "@angular/material/table";
+import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatNoDataRow } from "@angular/material/table";
 import {Client} from "../../../core/models/client.model";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
+import { MatSort, MatSortHeader } from "@angular/material/sort";
 import {debounceTime, distinctUntilChanged, map, merge, startWith, Subscription, switchMap} from "rxjs";
-import {FormControl} from "@angular/forms";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { HighlightDirective } from '../../../shared/directives/highlight.directive';
+import { MatButton } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-clients-table',
-  templateUrl: './clients-table.component.html',
-  styleUrl: './clients-table.component.scss'
+    selector: 'app-clients-table',
+    templateUrl: './clients-table.component.html',
+    styleUrl: './clients-table.component.scss',
+    standalone: true,
+    imports: [MatFormField, MatLabel, MatInput, ReactiveFormsModule, MatTable, MatSort, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatSortHeader, HighlightDirective, MatButton, RouterLink, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatNoDataRow, MatPaginator]
 })
 export class ClientsTableComponent implements AfterViewInit, OnDestroy {
   displayedColumns: string[] = ['lp', 'firstname', 'surname', 'email', 'buttons'];

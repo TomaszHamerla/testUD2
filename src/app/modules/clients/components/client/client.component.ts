@@ -6,11 +6,15 @@ import {switchMap} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteClientDialogComponent} from "./delete-client-dialog/delete-client-dialog.component";
 import {EditClientDialogComponent} from "./edit-client-dialog/edit-client-dialog.component";
+import { NgIf } from '@angular/common';
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrl: './client.component.scss'
+    selector: 'app-client',
+    templateUrl: './client.component.html',
+    styleUrl: './client.component.scss',
+    standalone: true,
+    imports: [NgIf, MatButton]
 })
 export class ClientComponent implements OnInit{
 
