@@ -5,11 +5,11 @@ import {authLoadGuard} from "./modules/core/guards/auth-load.guard";
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule)
+    loadChildren: () => import('./modules/home/routes').then((m) => m.ROUTES_HOME)
   },
   {
     path: 'klienci',
-    loadChildren: () => import('./modules/clients/clients.module').then((m) => m.ClientsModule)
+    loadChildren: () => import('./modules/clients/routes').then((m) => m.ROUTES_CLIENTS)
     , canMatch: [authLoadGuard]
   }
 ];
