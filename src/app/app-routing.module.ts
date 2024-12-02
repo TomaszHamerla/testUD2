@@ -5,7 +5,7 @@ import {authLoadGuard} from "./modules/core/guards/auth-load.guard";
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/home/routes').then((m) => m.ROUTES_HOME)
+    loadComponent: () => import('./modules/home/home.component').then((c) => c.HomeComponent)
   },
   {
     path: 'klienci',
